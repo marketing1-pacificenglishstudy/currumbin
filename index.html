@@ -197,6 +197,40 @@
       white-space: nowrap;
     }
 
+    /* 餐飲區樣式 */
+    .dining-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2rem);
+      max-width: min(1400px, 95vw);
+      margin: 0 auto;
+    }
+
+    .dining-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: none;
+    }
+    .dining-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+
+    .dining-banner {
+      padding: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+    
+    .dining-info {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .dining-info p {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-light);
+    }
+
     /* 手機：時間改到下一行，仍保持整齊 */
     @media (max-width: 768px) {
       .schedule-item {
@@ -299,7 +333,7 @@
     </div>
   </section>
 
-  <!-- 活動時間表（完整） -->
+  <!-- 活動時間表（完整呈現） -->
   <section class="section" id="schedule">
     <h2>
       <span class="en">Activity Schedule</span>
@@ -349,7 +383,7 @@
     </div>
   </section>
 
-  <!-- 主要景點（保留不動） -->
+  <!-- 主要景點 -->
   <section class="section" id="attractions">
     <h2>
       <span class="en">Attractions</span>
@@ -479,8 +513,62 @@
     </div>
   </section>
 
-  <!-- 連結大自然與學習（僅保留 3 項） -->
-  <section class="section soft-bg" id="learn">
+  <!-- 餐飲選擇（更正為官網最新資訊） -->
+  <section class="section soft-bg" id="dining">
+    <h2>
+      <span class="en">Dining Options</span>
+      <span class="zh">餐飲選擇</span>
+    </h2>
+
+    <div class="dining-grid">
+      <div class="dining-card">
+        <div class="dining-banner" style="background: linear-gradient(135deg, #FF6B35, #F7931E);">
+          <div class="bilingual" style="margin:0;">
+            <span class="en">The Homestead</span>
+            <span class="zh">The Homestead 餐廳</span>
+          </div>
+        </div>
+        <div class="dining-info">
+            <p>Relaxed outback dining experience.</p>
+            <p>輕鬆的澳洲內陸風格用餐體驗。</p>
+        </div>
+      </div>
+
+      <div class="dining-card">
+        <div class="dining-banner" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+          <div class="bilingual" style="margin:0;">
+            <span class="en">Sanctuary Cafe</span>
+            <span class="zh">保護區咖啡廳</span>
+          </div>
+        </div>
+        <div class="dining-info">
+            <p>Coffee, snacks & modern Australian meals.</p>
+            <p>提供咖啡、輕食與現代澳洲料理。</p>
+        </div>
+      </div>
+
+      <div class="dining-card">
+        <div class="dining-banner" style="background: linear-gradient(135deg, #FECA57, #FF9FF3);">
+          <div class="bilingual" style="margin:0;">
+            <span class="en">Wild Burgers</span>
+            <span class="zh">狂野漢堡</span>
+          </div>
+        </div>
+        <div class="dining-info">
+            <p>Burgers, chips & family favourites.</p>
+            <p>漢堡、薯條與家庭喜愛的餐點。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bilingual" style="max-width: 980px; margin: 2rem auto 0; text-align:center;">
+      <span class="en">From snacks to a true Australian dining experience, there are options across the sanctuary.</span>
+      <span class="zh">從小吃點心到道地澳洲風味餐點，園區內有多種選擇。</span>
+    </div>
+  </section>
+
+  <!-- 連結大自然與學習（修正：標題與項目） -->
+  <section class="section" id="learn">
     <h2>
       <span class="en">Connect Nature & Learn</span>
       <span class="zh">連結大自然與學習</span>
@@ -525,13 +613,14 @@
     </div>
   </section>
 
-  <!-- Footer（保留不動） -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div>
         <h4><span class="en">Explore</span><span class="zh">探索</span></h4>
         <a href="#schedule">Schedule</a>
         <a href="#attractions">Attractions</a>
+        <a href="#dining">Dining</a>
       </div>
 
       <div>
