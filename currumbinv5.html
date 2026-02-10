@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currumbin Wildlife Sanctuary | Complete Guide</title>
+    <style>
+        /* Currumbin 原色 + 自適應變數 */
+        :root {
+            --primary-green: #006400;
+            --secondary-green: #228B22;
+            --accent-blue: #1E90FF;
+            --accent-orange: #FF8C00;
+            --bg-light: #F5F5DC;
+            --bg-white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-light: #666;
+            --overlay-dark: rgba(0,0,0,0.5);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius: 12px;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-md: 0 12px 32px rgba(0,0,0,0.15);
+            --shadow-lg: 0 20px 48px rgba(0,0,0,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            overflow-x: hidden; 
+        }
+
+        /* 中英對照 */
+        .bilingual { margin-bottom: var(--spacing-md); }
+        .bilingual .en {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            line-height: 1.3;
+        }
+        .bilingual .zh {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            color: var(--text-dark);
+            font-family: 'Noto Sans TC', sans-serif;
+            margin-top: var(--spacing-xs);
+            opacity: 0.92;
+            line-height: 1.5;
+        }
+
+        /* Hero - 純文字版（無按鈕） */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
+                        url('https://currumbinsanctuary.com.au/wp-content/uploads/2023/08/hero-rainforest.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: clamp(var(--spacing-sm), 5vw, var(--spacing-xl));
+        }
+
+        .hero h1 .en { 
+            font-size: clamp(2rem, 8vw, 4.5rem); 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8); 
+            letter-spacing: -0.01em;
+        }
+        .hero h1 .zh { 
+            font-size: clamp(1.6rem, 5vw, 3rem); 
+            font-family: 'Noto Sans TC', sans-serif; 
+            margin-top: 1rem;
+        }
+        .hero p { 
+            max-width: 800px; 
+            margin: clamp(2rem, 5vw, 3rem) auto 0;
+        }
+        .hero p .en { font-size: clamp(1.1rem, 3vw, 1.6rem); }
+        .hero p .zh { 
+            font-size: clamp(1rem, 2.5vw, 1.3rem); 
+            font-family: 'Noto Sans TC', sans-serif; 
+            margin-top: 1rem;
+        }
+
+        /* 區塊樣式 */
+        .section { padding: clamp(var(--spacing-lg), 8vw, var(--spacing-xl)) clamp(var(--spacing-md), 5vw, var(--spacing-xl)); }
+        .section h2 { 
+            text-align: center; 
+            margin-bottom: clamp(2rem, 5vw, 3rem); 
+        }
+        .section h2 .en { 
+            font-size: clamp(1.8rem, 5vw, 3.2rem); 
+            color: var(--primary-green); 
+            font-weight: 800; 
+        }
+        .section h2 .zh { 
+            font-size: clamp(1.5rem, 4vw, 2.2rem); 
+            color: var(--primary-green); 
+            font-family: 'Noto Sans TC', sans-serif; 
+            margin-top: 0.5rem; 
+        }
+
+        /* 特色網格 */
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 28vw, 400px), 1fr)); 
+            gap: clamp(1.5rem, 4vw, 2.5rem); 
+            max-width: min(1400px, 95vw); 
+            margin: 0 auto; 
+        }
+        .feature-card { 
+            background: var(--bg-white); 
+            padding: clamp(2rem, 5vw, 3rem); 
+            border-radius: var(--border-radius); 
+            box-shadow: var(--shadow-sm); 
+            text-align: center; 
+            border-top: 6px solid var(--primary-green); 
+            transition: all 0.4s; 
+        }
+        .feature-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
+        .feature-icon { 
+            font-size: clamp(2.5rem, 8vw, 4rem); 
+            margin-bottom: var(--spacing-md); 
+            background: linear-gradient(var(--primary-green), var(--secondary-green)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+        }
+
+        /* 活動時間表 - 優化對齊美觀 */
+        .schedule { 
+            background: linear-gradient(135deg, var(--bg-light), #E8F5E8); 
+            border-radius: var(--border-radius); 
+            padding: clamp(2rem, 5vw, 3rem); 
+            margin: 2rem auto; 
+            max-width: 900px; 
+            box-shadow: var(--shadow-md); 
+        }
+        .schedule-item { 
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--spacing-md);
+            align-items: center;
+            padding: clamp(1rem, 3vw, 1.5rem) 0; 
+            border-bottom: 2px solid rgba(0,100,0,0.1); 
+        }
+        .schedule-item:last-child { border-bottom: none; }
+        
+        .schedule-item-content {
+            text-align: left;
+        }
+        .schedule-item-content .en {
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            display: block;
+        }
+        .schedule-item-content .zh {
+            font-size: clamp(0.95rem, 2.3vw, 1.15rem);
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--text-dark);
+            margin-top: 0.3rem;
+            display: block;
+        }
+        
+        .schedule-item-time {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 800;
+            color: var(--accent-orange);
+            text-align: right;
+            white-space: nowrap;
+            padding-left: var(--spacing-sm);
+        }
+
+        /* 餐飲區 */
+        .dining-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: clamp(1.5rem, 4vw, 2rem); 
+        }
+        .dining-card { 
+            background: white; 
+            border-radius: var(--border-radius); 
+            overflow: hidden; 
+            box-shadow: var(--shadow-sm); 
+            transition: transform 0.3s; 
+        }
+        .dining-card:hover { transform: translateY(-4px); }
+
+        /* Footer */
+        .footer { 
+            background: linear-gradient(135deg, var(--primary-green), #004d00); 
+            color: white; 
+            padding: clamp(var(--spacing-xl), 8vw, var(--spacing-xl)) clamp(var(--spacing-md), 5vw, var(--spacing-xl)); 
+            text-align: center; 
+        }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: clamp(1.5rem, 4vw, 2rem); 
+            max-width: 1200px; 
+            margin: 0 auto clamp(1.5rem, 4vw, 2rem); 
+        }
+
+        /* 響應式優化 */
+        @media (max-width: 768px) { 
+            .hero { background-attachment: scroll; }
+            .schedule-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .schedule-item-time {
+                text-align: left;
+                padding-left: 0;
+            }
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+    </style>
+</head>
+<body>
+
+    <!-- Hero - 純文字版 -->
+    <section class="hero">
+        <div>
+            <h1>
+                <span class="en">Explore Currumbin Wildlife Sanctuary</span>
+                <span class="zh">探索庫倫賓野生動物保護區</span>
+            </h1>
+            <p>
+                <span class="en">27 hectares of rainforest • 1,400+ native animals • World-famous lorikeet feeding since 1947</span>
+                <span class="zh">27公頃雨林 • 1400+原生動物 • 1947年起全球知名鸚鵡餵食</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 介紹 -->
+    <section class="section intro" style="background: linear-gradient(135deg, var(--bg-light), #E8F5E8);">
+        <h2>
+            <span class="en">What Makes Currumbin Special</span>
+            <span class="zh">庫倫賓獨特之處</span>
+        </h2>
+        <div class="bilingual">
+            <p class="en">Heritage-listed since 1947. Features world's largest lorikeet feeding (8AM & 4PM daily), wildlife hospital treating 12,000+ animals yearly, 2km miniature railway, 11 free-flight aviaries, koala encounters, and award-winning conservation education across 27 hectares of subtropical rainforest.</p>
+            <p class="zh">1947年遺產名勝。每日8AM&4PM全球最大鸚鵡餵食、年治12K動物的動物醫院、2km迷你火車、11個自由飛翔鳥舍、考拉互動、27公頃亞熱帶雨林獲獎保育教育。</p>
+        </div>
+        <div class="bilingual">
+            <p class="en"><strong>🕒 Open 9AM-4PM Daily</strong> (Closed 25 Apr & 25 Dec) • Free parking • Download app for map & showtimes</p>
+            <p class="zh"><strong>🕒 每日9:00-16:00</strong>（4/25&12/25休）• 免費停車 • 下載App查地圖＆場次</p>
+        </div>
+    </section>
+
+    <!-- 活動時間表 - 改良版 -->
+    <section class="section" id="schedule">
+        <h2>
+            <span class="en">Activity Schedule</span>
+            <span class="zh">活動時間表</span>
+        </h2>
+        <div class="schedule">
+            <div class="schedule-item">
+                <div class="schedule-item-content">
+                    <span class="en">Lorikeet Feeding</span>
+                    <span class="zh">鸚鵡餵食秀</span>
+                </div>
+                <div class="schedule-item-time">8AM & 4PM</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-item-content">
+                    <span class="en">Keeper Talks</span>
+                    <span class="zh">飼養員講解</span>
+                </div>
+                <div class="schedule-item-time">10AM, 11:30AM, 1PM, 2:30PM</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-item-content">
+                    <span class="en">Wildlife Shows</span>
+                    <span class="zh">野生動物表演</span>
+                </div>
+                <div class="schedule-item-time">11AM & 3PM</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-item-content">
+                    <span class="en">Miniature Train</span>
+                    <span class="zh">迷你火車</span>
+                </div>
+                <div class="schedule-item-time">Every 20 mins</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-item-content">
+                    <span class="en">Wildlife Hospital Tours</span>
+                    <span class="zh">動物醫院導覽</span>
+                </div>
+                <div class="schedule-item-time">10AM, 12PM, 2PM</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要景點 -->
+    <section class="section" id="attractions">
+        <h2>
+            <span class="en">Top Attractions</span>
+            <span class="zh">主要景點</span>
+        </h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🦜</div>
+                <h3>
+                    <span class="en">Lorikeet Feeding</span>
+                    <span class="zh">鸚鵡餵食區</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">World-famous spectacle with thousands of wild rainbow lorikeets feeding from your hand twice daily.</span>
+                    <span class="zh">全球知名，數千彩虹鸚鵡每日兩次從您手中進食。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🐨</div>
+                <h3>
+                    <span class="en">Koala Country</span>
+                    <span class="zh">考拉國度</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Pat & photograph koalas. See them in their natural rainforest habitat with gum trees.</span>
+                    <span class="zh">撫摸拍照考拉，觀察牠們於天然雨林桉樹棲地。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>
+                    <span class="en">Wildlife Hospital</span>
+                    <span class="zh">野生動物醫院</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Australia's busiest wildlife hospital treats 12,000+ native animals annually. Watch rehabilitation.</span>
+                    <span class="zh">澳洲最繁忙動物醫院，年治12K原生動物，觀察康復過程。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚂</div>
+                <h3>
+                    <span class="en">Miniature Railway</span>
+                    <span class="zh">迷你火車</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">2km scenic ride through rainforest exhibits since 1964. Runs every 20 minutes.</span>
+                    <span class="zh">1964年起2km雨林鐵道，每20分鐘一班。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🦘</div>
+                <h3>
+                    <span class="en">Outback Springs</span>
+                    <span class="zh">內陸泉水區</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Interactive kangaroo feeding & petting area plus Tasmanian devils and crocodiles.</span>
+                    <span class="zh">互動袋鼠餵食撫摸區，另有惡魔與鱷魚。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>
+                    <span class="en">Art Trail & Murals</span>
+                    <span class="zh">藝術步道＆壁畫</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Yugambeh Dreaming Stories mural + contemporary art installations throughout rainforest trails.</span>
+                    <span class="zh">原住民夢想故事壁畫＋當代藝術雨林步道。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💦</div>
+                <h3>
+                    <span class="en">Wild Island Splash Zone</span>
+                    <span class="zh">野生水上樂園</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Water play area for kids with rainforest animals theme.</span>
+                    <span class="zh">兒童雨林動物主題水上遊戲區。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌌</div>
+                <h3>
+                    <span class="en">Astra Lumina (Night)</span>
+                    <span class="zh">阿斯特拉夜光步道</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Cosmic night walk with light, sound, and stardust effects. Seasonal evenings.</span>
+                    <span class="zh">季節性夜晚星空光影步道體驗。</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 餐飲 -->
+    <section class="section" style="background: linear-gradient(135deg, var(--bg-light), #E8F5E8);">
+        <h2>
+            <span class="en">Dining Options</span>
+            <span class="zh">餐飲選擇</span>
+        </h2>
+        <div class="dining-grid">
+            <div class="dining-card">
+                <div style="background: linear-gradient(135deg, #FF6B35, #F7931E); padding: 2rem; text-align: center; color: white;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">
+                        <span class="en">Ranger Red's</span>
+                        <span class="zh">遊俠紅餐廳</span>
+                    </h3>
+                    <p style="margin: 0.5rem 0 0 0; opacity: 0.95;">
+                        <span class="en">Full Australian menu</span>
+                        <span class="zh">完整澳洲菜單</span>
+                    </p>
+                </div>
+            </div>
+            <div class="dining-card">
+                <div style="background: linear-gradient(135deg, #4ECDC4, #44A08D); padding: 2rem; text-align: center; color: white;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">
+                        <span class="en">Wombat Cafe</span>
+                        <span class="zh">袋熊咖啡館</span>
+                    </h3>
+                    <p style="margin: 0.5rem 0 0 0; opacity: 0.95;">
+                        <span class="en">Coffee & light meals</span>
+                        <span class="zh">咖啡輕食</span>
+                    </p>
+                </div>
+            </div>
+            <div class="dining-card">
+                <div style="background: linear-gradient(135deg, #FECA57, #FF9FF3); padding: 2rem; text-align: center; color: white;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">
+                        <span class="en">Snack Bars</span>
+                        <span class="zh">小吃攤</span>
+                    </h3>
+                    <p style="margin: 0.5rem 0 0 0; opacity: 0.95;">
+                        <span class="en">Ice cream & treats</span>
+                        <span class="zh">冰淇淋甜點</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育學習 -->
+    <section class="section" id="learn">
+        <h2>
+            <span class="en">Education & Learning Programs</span>
+            <span class="zh">教育學習計劃</span>
+        </h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👶</div>
+                <h3>
+                    <span class="en">Early Learning</span>
+                    <span class="zh">幼兒教育</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Spark curiosity with nature exploration for young wildlife warriors.</span>
+                    <span class="zh">點燃幼童對自然的好奇心。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>
+                    <span class="en">Primary School</span>
+                    <span class="zh">小學課程</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Hands-on Australian Curriculum aligned wildlife adventures.</span>
+                    <span class="zh">澳洲課程對應的野生動物體驗。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>
+                    <span class="en">High School</span>
+                    <span class="zh">中學課程</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Real-world learning with curriculum-linked experiences.</span>
+                    <span class="zh">實境學習課程連結體驗。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>
+                    <span class="en">Home Schooling</span>
+                    <span class="zh">家教課程</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Nature-based learning in supportive setting.</span>
+                    <span class="zh">自然環境支持家教學習。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚌</div>
+                <h3>
+                    <span class="en">Wildlife Incursions</span>
+                    <span class="zh">巡迴課堂</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Wildlife on Wheels comes to your school/ESL center.</span>
+                    <span class="zh">動物巡迴到校／ESL中心。</span>
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>
+                    <span class="en">Workshops</span>
+                    <span class="zh">工作坊</span>
+                </h3>
+                <p class="bilingual">
+                    <span class="en">Conservation, beekeeping, First Nations culture for adults & community groups.</span>
+                    <span class="zh">成人社區保育養蜂原住民文化工作坊。</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 原住民致敬 -->
+    <section class="section" style="background: linear-gradient(135deg, #F0F8F0, var(--bg-light)); text-align: center; padding: clamp(3rem, 8vw, 5rem) clamp(2rem, 5vw, 4rem) !important;">
+        <h2 style="color: var(--primary-green);">
+            <span class="en">Jingeri – Hello</span>
+            <span class="zh">Jingeri – 你好</span>
+        </h2>
+        <div class="bilingual" style="max-width: 800px; margin: 0 auto; font-style: italic; opacity: 0.9;">
+            <p class="en">We acknowledge Yugambeh Traditional Custodians, their continuing connection to Country, wildlife, and Elders past & present.</p>
+            <p class="zh">向Yugambeh傳統土地管理者致敬，感謝其對土地、野生動物及歷代長老的持續連結。</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>
+                    <span class="en">Explore</span>
+                    <span class="zh">探索</span>
+                </h4>
+                <p><a href="#attractions" style="color: rgba(255,255,255,0.85); text-decoration: none;">Attractions</a></p>
+                <p><a href="#schedule" style="color: rgba(255,255,255,0.85); text-decoration: none;">Schedule</a></p>
+            </div>
+            <div>
+                <h4>
+                    <span class="en">Learn</span>
+                    <span class="zh">學習</span>
+                </h4>
+                <p style="opacity: 0.85;">School Programs</p>
+                <p style="opacity: 0.85;">Workshops</p>
+            </div>
+            <div>
+                <h4>
+                    <span class="en">Visit</span>
+                    <span class="zh">參觀</span>
+                </h4>
+                <p style="opacity: 0.85;">9AM-4PM Daily</p>
+                <p style="opacity: 0.85;">Currumbin QLD</p>
+            </div>
+            <div>
+                <h4>
+                    <span class="en">App</span>
+                    <span class="zh">應用程式</span>
+                </h4>
+                <p style="opacity: 0.85;">Interactive Map</p>
+                <p style="opacity: 0.85;">Show Times</p>
+            </div>
+        </div>
+        <div style="opacity: 0.9; font-size: clamp(0.85rem, 2vw, 0.95rem); padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>&copy; 2026 Currumbin Wildlife Sanctuary | National Trust Queensland<br>
+            庫倫賓野生動物保護區 | 昆士蘭國家信託</p>
+        </div>
+    </footer>
+
+</body>
+</html>
